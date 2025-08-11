@@ -1,0 +1,56 @@
+{
+  "harbor": {
+    "_Required": "Basic connection details",
+    "url": "https://harbor.com",
+    "username": "",
+    "password": "",
+
+    "_Projects_available": "List of projects under bucket",
+    "project": "",
+
+    "_Optional_params": "Cleanup parameters (defaults shown)",
+    "days_to_keep": 3,
+    "dry_run": true,
+
+    "_Optional_tags": "Protected tags that should never be deleted",
+    "protected_tags": [
+      "latest",
+      "stable",
+      "prod",
+      "release",
+      "v1",
+      "main"
+    ],
+
+    "_Optional_logging": "Logging configuration",
+    "logging": {
+      "level": "INFO",
+      "format": "%(asctime)s - %(levelname)s - %(message)s",
+      "file": "logs/harbor-cleanup.log"
+    },
+
+    "_Optional_exclusions": "Project-specific exclusions",
+    "exclusions": {
+      "repositories": [
+        "critical-service",
+        "infra/base-images"
+      ],
+      "tags_patterns": [
+        "*-backup",
+        "archive-*"
+      ]
+    }
+  },
+
+  "smtp_config": {
+    "host": "",
+    "port": "",
+    "username": "",
+    "password": "",
+    "use_tls": true
+  },
+
+  "report_recipients": [],
+
+  "report_cc": []
+}
